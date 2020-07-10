@@ -8,11 +8,9 @@ module.exports = {
     var messageText = await ctx.update.message.text.toLowerCase();
 
     if (messageText.match("@")) {
-      await sessionController.postUser(_id, name, messageText);
-      ctx.reply("Cadastrado com sucesso");
+      await sessionController.postUser(_id, name, messageText, ctx);
     } else if (messageText.match("marca")) {
-      await botTimeController.postTimeNow(_id);
-      ctx.reply("Marcado");
+      await botTimeController.postTimeNow(_id, ctx);
     } else if (messageText.match("esqueci")) {
       ctx.reply(
         "Não se preocupe, me diga a data e os horarios separados por vingula"
@@ -22,5 +20,8 @@ module.exports = {
     } else {
       ctx.reply("Desculpe, não entendi");
     }
+  },
+  async nope(ctx) {
+    ctx.reply("Não posso marcar mais");
   },
 };
