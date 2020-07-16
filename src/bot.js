@@ -10,13 +10,18 @@ bot.use(async (ctx, next) => {
   console.log("Response time: %sms", ms);
 });
 
-bot.command("start", ctx => {
+bot.command("start", (ctx) => {
   ctx.reply(
     "Welcome OmniaPresente. \n Olá, antes de comecar, preciso cadastrar voce, me passa seu email por favor ^^"
   );
 });
 
-bot.on("text", async ctx => {
+//Possiveis erros no Bot
+bot.catch((err, ctx) => {
+  console.log(`Ooops, encontrei uma possivel erro:  ${ctx.updateType}`, err);
+});
+
+bot.on("text", async (ctx) => {
   await replies.show(ctx);
 
   //IDEIA

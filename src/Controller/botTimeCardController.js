@@ -10,7 +10,8 @@ module.exports = {
     var ano = now.getFullYear();
 
     var data = dia + "/" + mes + "/" + ano;
-    var hora = now.getHours() + ":" + now.getMinutes();
+    
+    var hora = new Date().toLocaleString().substr(10, 5);
     var user = await User.findOne({ _id });
     var cardtime = await TimeCard.findOne({ user: _id, date: data });
     var hours = [];
@@ -31,13 +32,14 @@ module.exports = {
         } else {
           hours.push(hora);
           await TimeCard.findOneAndUpdate(
-            { user: _id },
+            { user: _id, date: data },
             {
               date: cardtime.date,
               hours,
               user: _id,
             }
           );
+          ctx.reply("Marcado");
         }
       }
     }
