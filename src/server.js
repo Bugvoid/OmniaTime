@@ -16,10 +16,10 @@ mongoose.connect(
   "mongodb+srv://root:root@cluster0-huzkm.mongodb.net/OmniaPresente?retryWrites=true",
   {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   }
 );
 
-app.listen(process.env.PORT, function() {
+app.listen(process.env.PORT || 3333, function () {
   bot.launch();
 });
