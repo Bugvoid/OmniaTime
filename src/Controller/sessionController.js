@@ -5,9 +5,9 @@ module.exports = {
     let user = await User.findOne({ _id });
     if (!user) {
       await User.create({ _id, name, email });
-      ctx.reply("Cadastrado com sucesso");
+      ctx.reply("Cadastrado com sucesso" + name);
     } else {
-      ctx.reply("Bem-Vindo de volta!!");
+      ctx.reply("Bem-Vindo de volta!!" + name);
     }
   },
 };

@@ -9,9 +9,9 @@ module.exports = {
 
     if (messageText.match("@")) {
       await sessionController.postUser(_id, name, messageText, ctx);
-    } else if (messageText.match("marca")) {
+    } else if (messageText === "marca" || messageText === "Marca") {
       await botTimeController.postTimeNow(_id, ctx);
-    } else if (messageText.match("esqueci")) {
+    } else if (messageText === "esqueci" || messageText === "Esqueci") {
       ctx.reply(
         "Não se preocupe, me diga a data e os horarios separados por vingula"
       );
