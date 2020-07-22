@@ -1,6 +1,9 @@
 const botTimeController = require("../Controller/botTimeCardController");
 const sessionController = require("../Controller/sessionController");
 
+var aceitoMarca = ["", ""];
+var naoAceitoMarca = ["", ""];
+
 module.exports = {
   async show(ctx) {
     var _id = await ctx.update.message.from.id;
