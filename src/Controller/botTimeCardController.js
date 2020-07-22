@@ -13,11 +13,9 @@ module.exports = {
     var mesF = mes.length == 1 ? "0" + mes : mes;
     var ano = now.getFullYear();
     var data = diaF + "/" + mesF + "/" + ano;
-    var hora = now
-      .toLocaleString("pt-BR", {
-        timeZone: "America/Sao_Paulo",
-      })
-      .substr(10, 5);
+    var hora = now.getHours().toLocaleString("pt-BR", {
+      timeZone: "America/Sao_Paulo",
+    });
     var user = await User.findOne({ _id });
     var cardtime = await TimeCard.findOne({ user: _id, date: data });
     var hours = [];
