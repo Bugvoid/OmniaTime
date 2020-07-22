@@ -10,7 +10,7 @@ module.exports = {
     });
     var diaF = dia.length == 1 ? "0" + dia : dia;
     var mes = now.getMonth() + 1;
-    var mesF = mes.length == 1 ? "0" + mes : mes;
+    var mesF = mes < 10 ? "0" + mes : mes;
     var ano = now.getFullYear();
     var data = diaF + "/" + mesF + "/" + ano;
     var hora = now.getHours().toLocaleString("pt-BR", {
