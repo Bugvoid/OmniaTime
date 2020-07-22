@@ -18,7 +18,7 @@ var minuto = now.getMinutes().toLocaleString("pt-BR", {
   timeZone: "America/Sao_Paulo",
 });
 var horaF = hora + ":" + minuto;
-
+console.log(horaF);
 module.exports = {
   async postTimeNow(_id, ctx) {
     var user = await User.findOne({ _id });
