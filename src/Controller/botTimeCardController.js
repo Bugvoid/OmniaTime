@@ -4,19 +4,20 @@ const replies = require("../Config/replies");
 
 module.exports = {
   async postTimeNow(_id, ctx) {
-    var now = new Date().toLocaleString("pt-BR", {
+    var now = new Date();
+    var dia = now.getDate().toLocaleString("pt-BR", {
       timeZone: "America/Sao_Paulo",
     });
-    var dia = now.getDate();
     var diaF = dia.length == 1 ? "0" + dia : dia;
     var mes = now.getMonth() + 1;
     var mesF = mes.length == 1 ? "0" + mes : mes;
     var ano = now.getFullYear();
-
     var data = diaF + "/" + mesF + "/" + ano;
-
-    var hora = now.toLocaleString("pt-BR").substr(10, 5);
-    console.log(hora);
+    var hora = now
+      .toLocaleString("pt-BR", {
+        timeZone: "America/Sao_Paulo",
+      })
+      .substr(10, 5);
     var user = await User.findOne({ _id });
     var cardtime = await TimeCard.findOne({ user: _id, date: data });
     var hours = [];
