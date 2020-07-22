@@ -4,7 +4,9 @@ const replies = require("../Config/replies");
 
 module.exports = {
   async postTimeNow(_id, ctx) {
-    var now = new Date();
+    var now = new Date().toLocaleString("pt-br", {
+      timeZone: "Brazil/brt",
+    });
     var dia = now.getDate();
     var diaF = dia.length == 1 ? "0" + dia : dia;
     var mes = now.getMonth() + 1;
@@ -13,7 +15,8 @@ module.exports = {
 
     var data = diaF + "/" + mesF + "/" + ano;
 
-    var hora = new Date().toLocaleString("pt-BR").substr(10, 5);
+    var hora = now.toLocaleString("pt-BR").substr(10, 5);
+    console.log(hora);
     var user = await User.findOne({ _id });
     var cardtime = await TimeCard.findOne({ user: _id, date: data });
     var hours = [];
