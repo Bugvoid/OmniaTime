@@ -4,8 +4,8 @@ const replies = require("../Config/replies");
 
 module.exports = {
   async postTimeNow(_id, ctx) {
-    var now = new Date().toLocaleString("pt-br", {
-      timeZone: "Brazil/brt",
+    var now = new Date().toLocaleString("pt-BR", {
+      timeZone: "America/Sao_Paulo",
     });
     var dia = now.getDate();
     var diaF = dia.length == 1 ? "0" + dia : dia;
