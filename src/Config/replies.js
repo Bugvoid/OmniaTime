@@ -1,8 +1,8 @@
 const botTimeController = require("../Controller/botTimeCardController");
 const sessionController = require("../Controller/sessionController");
 
-var aceitoMarca = ["", ""];
-var naoAceitoMarca = ["", ""];
+// var aceitoMarca = ["", ""];
+// var naoAceitoMarca = ["", ""];
 
 module.exports = {
   async show(ctx) {

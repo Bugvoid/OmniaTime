@@ -21,9 +21,9 @@ bot.catch((err, ctx) => {
   console.log(`Ooops, encontrei uma possivel erro:  ${ctx.updateType}`, err);
 });
 
-bot.on("text", async (ctx) => {
-  await replies.show(ctx);
-
+bot.on("text", (ctx, next) => {
+  replies.show(ctx);
+  next();
   //IDEIA
   // if (messageText.toLowerCase() == "comando") {
   //   ctx.reply(
