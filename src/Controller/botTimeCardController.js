@@ -5,20 +5,14 @@ const replies = require("../Config/replies");
 module.exports = {
   async postTimeNow(_id, ctx) {
     var now = new Date();
-    var dia = now.getDate().toLocaleString("pt-br", {
-      timeZone: "America/Sao_Paulo",
-    });
+    var dia = now.getDate().toLocaleString("pt-BR");
     var diaF = dia.length == 1 ? "0" + dia : dia;
     var mes = now.getMonth() + 1;
     var mesF = mes < 10 ? "0" + mes : mes;
     var ano = now.getFullYear();
     var data = diaF + "/" + mesF + "/" + ano;
-    var hora = now.getHours().toLocaleString("pt-br", {
-      timeZone: "America/Sao_Paulo",
-    });
-    var minuto = now.getMinutes().toLocaleString("pt-br", {
-      timeZone: "America/Sao_Paulo",
-    });
+    var hora = now.getHours().toLocaleString("pt-BR");
+    var minuto = now.getMinutes().toLocaleString("pt-BR");
     var minutoF = minuto < 10 ? "0" + minuto : minuto;
     var horaF = hora + ":" + minutoF;
 
